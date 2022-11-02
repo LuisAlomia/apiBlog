@@ -7,6 +7,9 @@ require("../middlewares/auth.middleware")(passport);
 
 const authPassportUser = passport.authenticate("jwt", { session: false });
 
+/**
+ * http://localhost:9000/api/v1/categories
+ */
 router
   .route("/")
   .get(categoriesServides.getAllCategoryServices)
@@ -16,12 +19,18 @@ router
     categoriesServides.createCategoryServices
   );
 
+/** En id incluir el id de la categoria
+ * http://localhost:9000/api/v1/categories/id
+ */
 router
   .route("/:id")
   .get(categoriesServides.getCategoryByIdServices)
   .delete(authPassportUser, categoriesServides.deleteCategoryServices)
   .patch(authPassportUser, categoriesServides.patchCategoryServices);
 
+/** En id incluir el id de la categoria
+ * http://localhost:9000/api/v1/categories/id/posts
+ */
 router.get("/:id/posts", getPostByCategoryServices);
 
 module.exports = router;

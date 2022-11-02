@@ -10,14 +10,22 @@ const {
 
 const authPassportUser = passport.authenticate("jwt", { session: false });
 
+/**
+ * http://localhost:9000/api/v1/posts
+ */
 router
   .route("/")
   .get(postServices.getAllPostServices)
   .post(authPassportUser, validateCreatePost, postServices.createPostServices);
 
-//mejorar esta ruta
+/**
+ * http://localhost:9000/api/v1/posts/me
+ */
 router.get("/me", authPassportUser, postServices.getMyPostServices);
 
+/** En id incluir el id del posts
+ * http://localhost:9000/api/v1/posts/id
+ */
 router
   .route("/:id")
   .get(validateById, postServices.getPostByIdServices)

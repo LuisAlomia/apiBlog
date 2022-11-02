@@ -12,14 +12,23 @@ const {
 
 const authPassportUser = passport.authenticate("jwt", { session: false });
 
+/**
+ * http://localhost:9000/api/v1/users/
+ */
 router.get("/", usersServices.getAllUsersServices);
 
+/**
+ * http://localhost:9000/api/v1/users/me
+ */
 router
   .route("/me")
   .get(authPassportUser, myUserServices.getMyUser)
   .delete(authPassportUser, myUserServices.deleteMyUser)
   .patch(authPassportUser, validatePatchMyUser, myUserServices.patchMyUser);
 
+/** En id incluir el id del usuario
+ * http://localhost:9000/api/v1/users/id
+ */
 router
   .route("/:id")
   .get(

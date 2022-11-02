@@ -1,58 +1,36 @@
 # Blog API
 
-- Front:
-  - Obtener todas las publicaciónes
-  - Obtener una en especifico
-  - Obtener todas las categorias
-  - Obtener todos los post de una categoria en especifico
-  - Obtener todos los posts que he creado
-  - Obtener todos los posts de un usuario en especifico
-  - Podemos paginar los posts
-  - Acciones de CRUD sobre Posts
-  - Crear categorias
+Esta es una **API Rest** desarrollada en **NODE JS**, que permite la creación actualización y eliminación de usuarios, posts y categorías. Además tiene **validación de datos, rutas protegidas, roles, Hash de contraseñas, token de sesión y paginación.** De esta manera una vez el usuario crea una cuenta este podrá crear diferentes posts de interés general o particular, podrá ver los posts de otros usuarios o filtrarlos por categorías o ver solo los creados por él.
 
-```json
-{
-  "total": 68,
-  "prev": "localhost:9000/api/v1/posts?start=51&limit=60",
-  "next": "localhost:9000/api/v1/posts?start=61&limit=68",
-  "data": [
-    {
-      "id": "a860986d-2570-4f39-afe6-c30fb74f350e",
-      "title": "ejemplo",
-      "content": "lorem ipsum",
-      "createdBy": {
-        "id": "5b7cc060-3597-4946-bb9b-3a54e2098f82",
-        "name": "Sahid",
-        "email": "sahid.kick@academlo.com"
-      },
-      "category": {
-        "id": 4,
-        "name": "Tecnologia"
-      }
-    }
-  ]
-}
-```
+### Tecnologías principales
 
-/api/v1
+- **express** (Es una infraestructura web que nos permite la creación de **APIS** sobre el entorno de desarrollo de **NODE JS**)
+- **bcryp** (Permite encriptar las contraseñas )
+- **dotenv** (Nos permite manejar las variables de entorno)
+- **express-validator** (Permite validar el tipo de datos que envía el cliente)
+- jsonwebtoken (Con este podemos crear el token de usuario)
+- **passport**
+- **passport-jwt** ((Nos permite validar el token ))
+- **sequelize** (Es un **ORM** de base de datos relacionales para este proyecto usamos **Postgres**)
+- **uuid** (Nos brida un id aleatorio de formato especifico)
 
-/users
+##Como iniciar el proyecto
 
-- /me
-- /me/posts
-- /me/posts/:id
-- /:id
+- Clonar el repositorio **(git clone https://github.com/LuisAlomia/apiBlog.git)**
+- Instalar las dependencias **(npm install)**
+- Crear archivo **(.env)** con las variables de entorno
+- Crear la base de datos en Postgres
+- Iniciar el servidor **(npm run start)**
+- Probar las rutas
+- O entrar en modo desarrollo con **(npm run dev)**
+  **Nota :** si inicias el modo desarrollo antes se recomienda instalar nodemon **(npm install nodemon -D)**
 
-/categories
-
-- /:id
-- /:id/posts
-
-/posts
-
-- /:id
-
-ejemplo de url para cueris de paginacion
-
-- localhost:9000/api/v1/posts?offset=0&limit=20
+##Variables de entorno (.env)
+Crea el archivo **(.env)** en la raíz del proyecto e ingresa las siguientes variables
+PORT = 9000 (es el Puerto local del servidor)
+DB_USERNAME = user name data base
+DB_PASSWORD = password data base
+DB_HOST = localhost
+DB_NAMEDB = name data base
+JWT_SECRET = secret word
+**Nota:** Recuerda revisar el archive **(.env.example)**
