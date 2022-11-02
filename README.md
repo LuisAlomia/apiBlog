@@ -14,7 +14,7 @@ Esta es una **API Rest** desarrollada en **NODE JS**, que permite la creación a
 - **sequelize** (Es un **ORM** de base de datos relacionales para este proyecto usamos **Postgres**)
 - **uuid** (Nos brida un id aleatorio de formato especifico)
 
-##Como iniciar el proyecto
+## Como iniciar el proyecto
 
 - Clonar el repositorio **(git clone https://github.com/LuisAlomia/apiBlog.git)**
 - Instalar las dependencias **(npm install)**
@@ -25,7 +25,8 @@ Esta es una **API Rest** desarrollada en **NODE JS**, que permite la creación a
 - O entrar en modo desarrollo con **(npm run dev)**
   **Nota :** si inicias el modo desarrollo antes se recomienda instalar nodemon **(npm install nodemon -D)**
 
-##Variables de entorno (.env)
+## Variables de entorno (.env)
+
 Crea el archivo **(.env)** en la raíz del proyecto e ingresa las siguientes variables
 PORT = 9000 (es el Puerto local del servidor)
 DB_USERNAME = user name data base
